@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>{% block title %} Create a New Post {% endblock %}</h1>
+<h1>{% block title %} Stock Alert {% endblock %}</h1>
 
 <form method="post">
     <div class="form-group">
@@ -12,10 +12,29 @@
     </div>
 
     <div class="form-group">
-        <label for="content">Content</label>
-        <textarea name="content" placeholder="Post content"
-                  class="form-control">{{ request.form['content'] }}</textarea>
+        <label for="email">Email</label>
+        <textarea name="email" placeholder="Post email"
+                  class="form-control">{{ request.form['email'] }}</textarea>
     </div>
+
+    <div class="form-group">
+        <label for="ticket">Ticket</label>
+        <textarea name="ticket" placeholder="Post ticket"
+                  class="form-control">{{ request.form['ticket'] }}</textarea>
+    </div>
+
+    <div class="form-group">
+        <label for="ceilings">Ceilings</label>
+        <textarea name="ceilings" placeholder="Post ceilings"
+                  class="form-control">{{ request.form['ceilings'] }}</textarea>
+    </div>
+
+    <div class="form-group">
+        <label for="floors">Floors</label>
+        <textarea name="floors" placeholder="Post floors"
+                  class="form-control">{{ request.form['floors'] }}</textarea>
+    </div>
+
     <div class="form-group">
         <button type="submit" class="btn btn-primary">Submit</button>
     </div>

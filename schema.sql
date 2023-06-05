@@ -4,5 +4,8 @@ CREATE TABLE posts (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     title TEXT NOT NULL,
-    content TEXT NOT NULL
+    email TEXT NOT NULL,
+    ticket TEXT NOT NULL,
+    ceilings TEXT NOT NULL,
+    floors TEXT NOT NULL
 );

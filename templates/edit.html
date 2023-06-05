@@ -13,9 +13,27 @@
     </div>
 
     <div class="form-group">
-        <label for="content">Content</label>
-        <textarea name="content" placeholder="Post content"
-                  class="form-control">{{ request.form['content'] or post['content'] }}</textarea>
+        <label for="email">Email</label>
+        <textarea name="email" placeholder="Post email"
+                  class="form-control">{{ request.form['email'] or post['email'] }}</textarea>
+    </div>
+
+    <div class="form-group">
+        <label for="ticket">Ticket</label>
+        <textarea name="ticket" placeholder="Post ticket"
+                  class="form-control">{{ request.form['ticket'] or post['ticket'] }}</textarea>
+    </div>
+
+    <div class="form-group">
+        <label for="ceilings">Ceilings</label>
+        <textarea name="ceilings" placeholder="Post ceilings"
+                  class="form-control">{{ request.form['ceilings'] or post['ceilings'] }}</textarea>
+    </div>
+
+    <div class="form-group">
+        <label for="floors">Floors</label>
+        <textarea name="floors" placeholder="Post floors"
+                  class="form-control">{{ request.form['floors'] or post['floors'] }}</textarea>
     </div>
     <div class="form-group">
         <button type="submit" class="btn btn-primary">Submit</button>

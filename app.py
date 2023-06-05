@@ -35,14 +35,17 @@ def post(post_id):
 def create():
     if request.method == 'POST':
         title = request.form['title']
-        content = request.form['content']
+        email = request.form['email']
+        ticket = request.form['ticket']
+        ceilings = request.form['ceilings']
+        floors = request.form['floors']
 
         if not title:
             flash('Title is required!')
         else:
             conn = get_db_connection()
-            conn.execute('INSERT INTO posts (title, content) VALUES (?, ?)',
-                         (title, content))
+            conn.execute('INSERT INTO posts (title, email, ticket, ceilings, floors) VALUES (?, ?, ?, ?, ?)',
+                         (title, email, ticket, ceilings, floors))
             conn.commit()
             conn.close()
             return redirect(url_for('index'))
@@ -55,15 +58,18 @@ def edit(id):
 
     if request.method == 'POST':
         title = request.form['title']
-        content = request.form['content']
+        email = request.form['email']
+        ticket = request.form['ticket']
+        ceilings = request.form['ceilings']
+        floors = request.form['floors']
 
         if not title:
             flash('Title is required!')
         else:
             conn = get_db_connection()
-            conn.execute('UPDATE posts SET title = ?, content = ?'
+            conn.execute('UPDATE posts SET title = ?, email = ?, ticket = ?, ceilings = ?, floors = ?' 
                          ' WHERE id = ?',
-                         (title, content, id))
+                         (title, email, ticket, ceilings, floors, id))
             conn.commit()
             conn.close()
             return redirect(url_for('index'))
