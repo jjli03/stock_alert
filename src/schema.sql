@@ -1,0 +1,20 @@
+DROP TABLE IF EXISTS posts;
+DROP TABLE IF EXISTS alerts;
+
+CREATE TABLE posts (
+    id INTEGER PRIMARY KEY,
+    created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    title TEXT NOT NULL,
+    email TEXT NOT NULL,
+    ticket TEXT NOT NULL,
+    ceilings TEXT NOT NULL,
+    floors TEXT NOT NULL
+);
+
+CREATE TABLE alerts (
+    alert_id INTEGER PRIMARY KEY,
+    alert_time TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    title TEXT NOT NULL,
+    ticket TEXT NOT NULL,
+    price TEXT NOT NULL
+);

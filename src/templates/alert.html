@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{% block title %} Alerts Page {% endblock %}</h1>
+    {% for alert in alerts %}
+        <a href="###">
+            <h2>{{ alert['title'] }}</h2>
+        </a>
+        <p>{{ alert['create_time'] }}</p>
+        <p>{{ alert['alert_time'] }}</p>
+        <p>{{ alert['email'] }}</p>
+        <p>{{ alert['ticket'] }}</p>
+        <p>{{ alert['ceiling'] }}</p>
+        <p>{{ alert['floor'] }}</p>
+        <p>{{ alert['price'] }}</p>
+        <span class="badge badge-primary">{{ alert['created'] }}</span>
+        <hr>
+    {% endfor %}
+{% endblock %}
