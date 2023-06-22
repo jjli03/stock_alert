@@ -11,9 +11,25 @@ pip install flask
 
 python -c "import flask; print(flask.__version__)"
 
+### Install Pandas
+
+https://pandas.pydata.org/docs/getting_started/install.html
+
+pip install pandas
+
+### Install Werzug
+
+https://pypi.org/project/Werkzeug/
+
+pip install -U Werkzeug
+
 ### Utilize Alpha Vantage API
 
 https://www.alphavantage.co/#about
+
+pip install alpha_vantage
+
+"For individual usage, a unique API key is required to access financial data
 
 ### Run Website:
 
