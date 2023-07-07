@@ -1,19 +1,64 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>{% block title %} Alerts Page {% endblock %}</h1>
-    {% for alert in alerts %}
-        <a href="###">
-            <h2>{{ alert['title'] }}</h2>
-        </a>
-        <p>{{ alert['create_time'] }}</p>
-        <p>{{ alert['alert_time'] }}</p>
-        <p>{{ alert['email'] }}</p>
-        <p>{{ alert['ticket'] }}</p>
-        <p>{{ alert['ceiling'] }}</p>
-        <p>{{ alert['floor'] }}</p>
-        <p>{{ alert['price'] }}</p>
-        <span class="badge badge-primary">{{ alert['created'] }}</span>
-        <hr>
-    {% endfor %}
+    <h1>{% block title %} Welcome to StockAlerts {% endblock %}</h1>
+    <style>
+        .stock-table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        
+        .stock-table th, .stock-table td {
+            padding: 12px;
+            text-align: left;
+        }
+        
+        .stock-table th {
+            background-color: #f2f2f2;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .stock-table tr {
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .stock-table td.ticket {
+            font-weight: bold;
+            color: blue;
+        }
+        
+        .stock-table tr:last-child {
+            border-bottom: none;
+        }
+        
+        .stock-table tr:hover {
+            background-color: #f5f5f5;
+        }
+    </style>
+    <table class="stock-table">
+        <thead>
+            <tr>
+                <th>Ticket</th>
+                <th>Ceiling</th>
+                <th>Floor</th>
+                <th>Price</th>
+                <th>Create Time</th>
+                <th>Alert Time</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for alert in alerts %}
+                <tr>
+                    <td class="ticket">{{ alert['ticket'] }}</td>
+                    <td>{{ alert['ceiling'] }}</td>
+                    <td>{{ alert['floor'] }}</td>
+                    <td>{{ alert['price'] }}</td>
+                    <td>{{ alert['create_time'] }}</td>
+                    <td>{{ alert['alert_time'] }}</td>
+                    <td>{{ alert['email'] }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 {% endblock %}

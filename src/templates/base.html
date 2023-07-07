@@ -12,7 +12,7 @@
   </head>
   <body>
     <nav class="navbar navbar-expand-md navbar-light bg-light">
-      <a class="navbar-brand" href="{{ url_for('index')}}">StockAlerts</a>
+      <a class="navbar-brand" href="{{ url_for('myposts')}}">StockAlerts</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
       </button>
@@ -21,12 +21,17 @@
           <li class="nav-item">
               <a class="nav-link" href="#">About</a>
           </li>
+          {% if current_user.is_authenticated %}
           <li class="nav-item">
               <a class="nav-link" href="{{url_for('create')}}">New Post</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{url_for('checks')}}">Post Search</a>
+            <a class="nav-link" href="{{url_for('checks')}}">Search</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{url_for('logout')}}">Logout</a>
+          </li>
+          {% endif %}
           </ul>
       </div>
   </nav>
