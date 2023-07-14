@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>{% block title %} Welcome to StockAlerts {% endblock %}</h1>
+    <h1>{% block title %} Welcome to StockAlerts - {{ current_user.username }} {% endblock %}</h1>
     <style>
         .stock-table {
             border-collapse: collapse;

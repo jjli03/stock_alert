@@ -1,11 +1,8 @@
 # stock_alert
 Create a stock alert website using frontend and backend systems
 
-<<<<<<< HEAD
-=======
 pip install -r requirements.txt
 
->>>>>>> 14a7c33326c734754e2d7fea72cbbef12edfa9e1
 Inspiration: https://medium.com/illumination/how-to-build-a-stock-price-alert-using-python-d7d61ec12f2
 
 ### Install Flask:
@@ -45,7 +42,6 @@ flask run
 ### Initialize database:
 
 python3 init_db.py
-<<<<<<< HEAD
 
 ### Install Flask-Login:
 
@@ -66,5 +62,4 @@ the stock symbol will be present along with various other details from your post
 ### New Post Tab
 
 Insert one valid stock symbol, a ceiling, and a floor to create a post.
-=======
->>>>>>> 14a7c33326c734754e2d7fea72cbbef12edfa9e1
+
