@@ -2,23 +2,23 @@
 
 {% block content %}
 
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Clear Table</title>
-</head>
-<body>
-    <h1>Clear Table</h1>
-    <form method="POST">
-        <label for="table">Select Table:</label>
-        <select name="table" id="table">
-            <option value="posts">Posts</option>
-            <option value="alerts">Alerts</option>
-        </select>
-        <br><br>
-        <input type="submit" value="Clear Table">
-    </form>
-</body>
-</html>
+<div class="container">
+    <div class="row mt-3">
+        <div class="col">
+            <h1>Clear Table</h1>
+            <form method="POST">
+                <div class="form-group">
+                    <label for="table">Select Table:</label>
+                    <select class="form-control" name="table" id="table">
+                        <option value="posts">Posts</option>
+                        <option value="alerts">Alerts</option>
+                    </select>
+                </div>
+                <br>
+                <button type="submit" class="btn btn-primary">Clear Table</button>
+            </form>
+        </div>
+    </div>
+</div>
 
 {% endblock %}

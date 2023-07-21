@@ -1,6 +1,6 @@
 import sqlite3
 from vantage import extract_prices, check_database_stocks, extract_prices_ms, validate_ticket
-from flask import Flask, render_template, request, url_for, flash, redirect
+from flask import Flask, render_template, request, url_for, flash, redirect, session
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import login_required, LoginManager, UserMixin, login_user, logout_user, current_user
 from werkzeug.exceptions import abort
@@ -282,6 +282,22 @@ def mysql_clear():
             mysql_manager.clear_alerts()
         return redirect(url_for('mysql_myposts'))
     return render_template('clear.html')
+
+# --- Selection ---
+
+@app.route('/database', methods=['GET', 'POST'])
+@login_required
+def database():
+    if request.method == 'POST':
+        db = request.form.get('database')
+        if db == 'sqlite':
+            session['db_implementation'] = 'sqlite'
+            return redirect(url_for('myposts'))
+        elif db == 'mysql':
+            session['db_implementation'] = 'mysql'
+            return redirect(url_for('mysql_myposts'))
+        
+    return render_template('dbtype.html')
 
 if __name__ == '__main__':
     app.run()
