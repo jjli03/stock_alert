@@ -65,9 +65,13 @@
                 <td>${{ post['floors'] }}</td>
                 <td>${{ prices[loop.index0] }}</td>
                 <td class="edit-button">
-                    <a href="{{ url_for('edit', id=post['id']) }}">Edit</a>
+                    {% if db_implementation == 'sqlite' %}
+                        <a href="{{ url_for('edit', id=post['id']) }}">Edit</a>
+                    {% elif db_implementation == 'mysql' %}
+                        <a href="{{ url_for('mysql_edit', id=post['id']) }}">Edit</a>
+                    {% endif %}
                 </td>
             </tr>
         {% endfor %}
     </table>
-{% endblock %}
+    {% endblock %}

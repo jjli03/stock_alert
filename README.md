@@ -63,3 +63,5 @@ the stock symbol will be present along with various other details from your post
 
 Insert one valid stock symbol, a ceiling, and a floor to create a post.
 
+Install MySQL depending on OS
+Install pip install cryptography
