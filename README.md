@@ -63,5 +63,10 @@ the stock symbol will be present along with various other details from your post
 
 Insert one valid stock symbol, a ceiling, and a floor to create a post.
 
-Install MySQL depending on OS
-Install pip install cryptography
+### Install MySQL
+
+Install MySQL depending on OS: https://dev.mysql.com/doc/mysql-installation-excerpt/8.0/en/
+
+pip install cryptography
+
+Update line 19 in app.py to tailor to your password and user: mysql_manager = MySqlDb(host = 'localhost', user = 'root', password = ?, db = ?)
