@@ -1,5 +1,5 @@
 import sqlite3
-from vantage import extract_prices, check_database_stocks, extract_prices_ms, validate_ticket
+from vantage import extract_prices, check_database_stocks, extract_prices_ms, validate_ticket, isfloat
 from flask import Flask, render_template, request, url_for, flash, redirect, session
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import login_required, LoginManager, UserMixin, login_user, logout_user, current_user
@@ -89,9 +89,9 @@ def create():
 
         if not title: # Error handling if ceiling/floor are numbers, ceiling > floor, and 
             flash('Title is required!', 'error') # the ticekt is valid according to vantage
-        elif not ceilings.isdigit() or not floors.isdigit():
+        elif not isfloat(ceilings) or not isfloat(floors):
             flash('Ceilings and floors must be numbers!', 'error')
-        elif int(ceilings) <= int(floors):
+        elif float(ceilings) <= float(floors):
             flash('Ceilings must be greater than floors!', 'error')
         elif not validate_ticket(ticket):
             flash('Invalid stock ticket symbol!', 'error')
@@ -115,9 +115,9 @@ def edit(id):
 
         if not title: # Error handling if ceiling/floor are numbers, ceiling > floor, and 
             flash('Title is required!', 'error') # the ticekt is valid according to vantage
-        elif not ceilings.isdigit() or not floors.isdigit():
+        elif not isfloat(ceilings) or not isfloat(floors):
             flash('Ceilings and floors must be numbers!', 'error')
-        elif int(ceilings) <= int(floors):
+        elif float(ceilings) <= float(floors):
             flash('Ceilings must be greater than floors!', 'error')
         elif not validate_ticket(ticket):
             flash('Invalid stock ticket symbol!', 'error')
@@ -192,9 +192,9 @@ def mysql_create():
 
         if not title:
             flash('Title is required!', 'error')
-        elif not ceilings.isdigit() or not floors.isdigit():
+        elif not isfloat(ceilings) or not isfloat(floors):
             flash('Ceilings and floors must be numbers!', 'error')
-        elif int(ceilings) <= int(floors):
+        elif float(ceilings) <= float(floors):
             flash('Ceilings must be greater than floors!', 'error')
         else:
             mysql_manager.create_post(title, email, ticket, ceilings, floors)
@@ -226,9 +226,9 @@ def mysql_edit(id):
 
         if not title: # Error handling if ceiling/floor are numbers, ceiling > floor, and 
             flash('Title is required!', 'error') # the ticekt is valid according to vantage
-        elif not ceilings.isdigit() or not floors.isdigit():
+        elif not isfloat(ceilings) or not isfloat(floors):
             flash('Ceilings and floors must be numbers!', 'error')
-        elif int(ceilings) <= int(floors):
+        elif float(ceilings) <= float(floors):
             flash('Ceilings must be greater than floors!', 'error')
         elif not validate_ticket(ticket):
             flash('Invalid stock ticket symbol!', 'error')

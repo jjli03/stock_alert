@@ -32,8 +32,8 @@ def check_database_stocks(dict, name, ticket): # Return -1 for name not found, 0
     price_list = []
     for key, value in dict.items():
         if (name == value[1]) and (ticket == value[3]):
-            ceil = int(value[4])
-            floor = int(value[5])
+            ceil = float(value[4])
+            floor = float(value[5])
             last_price = price_setup(value[3]) #Selecting the last price from the close_data column
             if (last_price < floor) or (last_price > ceil):
                 price_list.append(last_price)
@@ -44,4 +44,11 @@ def validate_ticket(ticket):
         last_price = price_setup(ticket)
         return True
     except:
+        return False
+
+def isfloat(num):
+    try:
+        float(num)
+        return True
+    except ValueError:
         return False
